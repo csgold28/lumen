@@ -18,7 +18,6 @@ class Products extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->string('name');
-            $table->integer('suplayer_id')->unsigned();
             $table->bigInteger('price');
             $table->integer('is_acive')->default(1);
             $table->text('description')->nullable();
