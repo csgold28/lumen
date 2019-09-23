@@ -11,11 +11,14 @@
 |
 */
 
-$router->get('/api', function () use ($router) {
-    return $router->app->version();
-});
 
-$router->get('/key', function () {
-    $key = str_random(32);
-    return $key;
+$router->group(['prefix' => 'api'], function () use ($router) {
+    // Matches "/api/register
+    $router->post('register', 'AuthController@register');
+
+    // Matches "/api/login
+    $router->post('login', 'AuthController@login');
+
+    // Matches "/api/profile
+    $router->get('member/{id}', 'MemberController@show');
 });
