@@ -80,7 +80,7 @@ return [
         'members' => [
             'provider' => 'members',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 1440,
         ],
     ],
 ];

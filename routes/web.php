@@ -21,4 +21,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     // Matches "/api/profile
     $router->get('member/{id}', 'MemberController@show');
+    $router->post('member/profile/{id}', 'MemberController@createprofile');
+    $router->get('member/profile/{id}', 'MemberController@showprofile');
 });

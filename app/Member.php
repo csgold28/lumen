@@ -7,7 +7,7 @@ use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
@@ -30,5 +30,10 @@ class Member extends Model implements AuthenticatableContract, AuthorizableContr
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function profile()
+    {
+        return $this->HasOne(Profile::class);
     }
 }
