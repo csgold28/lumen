@@ -15,11 +15,11 @@ class Member extends Model implements AuthenticatableContract, AuthorizableContr
 {
     use Authenticatable,  Authorizable;
     protected $fillable = [
-        'name', 'phone'
+        'name', 'phone', 'password'
     ];
 
     protected $hidden = [
-        'password', 'api_token'
+        'password'
     ];
 
     public function getJWTIdentifier()

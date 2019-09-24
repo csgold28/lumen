@@ -14,10 +14,10 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->integer('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('noktp')->unique();
+            $table->string('noktp');
             $table->boolean('gender')->nullable();
             $table->text('alamat');
             $table->string('provinsi');
