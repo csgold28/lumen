@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class DepositTiket extends Model
 {
     protected $fillable = [
-        'noktp', 'gender', 'alamat', 'provinsi', 'kota', 'kecamatan', 'desa'
+        'invoice', 'tipe', 'metode', 'notes', 'nominal', 'status'
     ];
 
     public function member()

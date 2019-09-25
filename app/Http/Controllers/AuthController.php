@@ -77,7 +77,7 @@ class AuthController extends Controller
                     'message' => 'Login berhasil!',
                     'data' => [
                         'member' => $member,
-                        'api_token' => 'Bearer' . ' ' . $token
+                        'token' => 'Bearer' . ' ' . $token
                     ]
                 ], 201);
             }

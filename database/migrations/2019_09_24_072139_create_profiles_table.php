@@ -22,7 +22,7 @@ class CreateProfilesTable extends Migration
             $table->text('alamat');
             $table->string('provinsi');
             $table->string('kota');
-            $table->string('kecematan');
+            $table->string('kecamatan');
             $table->string('desa');
             $table->timestamps();
         });
