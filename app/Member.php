@@ -41,4 +41,19 @@ class Member extends Model implements AuthenticatableContract, AuthorizableContr
     {
         return $this->hasMany(DepositTiket::class);
     }
+
+    public function saldo()
+    {
+        return $this->HasOne(Saldo::class);
+    }
+
+    public function poin()
+    {
+        return $this->HasOne(Poin::class);
+    }
+
+    public function komisi()
+    {
+        return $this->HasOne(Komisi::class);
+    }
 }

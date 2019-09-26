@@ -31,10 +31,10 @@ class DepositTiketController extends Controller
         $member = Member::find($id);
 
         $reqdeposit = new DepositTiket([
-            'invoice' => $invoice,
-            'tipe' => 1,
-            'metode' => 1,
-            'notes' => 'Silahkan melakukan pembayaran dengan transfer nominal yang telah diberikan!',
+            'invoice' => 'TOPUP/' . $invoice,
+            'tipe' => 'TOPUP',
+            'metode' => 'Transfer Bank',
+            'notes' => 'Request Top Up',
             'nominal' => $nominalunik,
             'status' => 2
 
@@ -53,6 +53,39 @@ class DepositTiketController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Permintaan Tiket Deposit GAGAL!',
+            ], 400);
+        }
+    }
+
+    public function showTopUp($id)
+    {
+        $member = Member::find($id);
+
+        $topups = $member->tiketdeposit()->get();
+
+        foreach ($topups as $topup) {
+            $data[] = [
+                'name' => $topup->member->name,
+                'invoice' => $topup->invoice,
+                'tipe' => $topup->tipe,
+                'metode' => $topup->metode,
+                'notes' => $topup->notes,
+                'nominal' => $topup->nominal,
+                'status' => $topup->status
+
+            ];
+        }
+
+        if ($data) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Data ditemukan!',
+                'data' => $data,
+            ], 201);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data tidak ditemukan!',
             ], 400);
         }
     }

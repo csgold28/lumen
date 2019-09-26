@@ -26,4 +26,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('member/profile/{id}', 'MemberController@showprofile');
 
     $router->post('req_deposit/{id}', 'DepositTiketController@deposittiket');
+    $router->get('topup/{id}', 'DepositTiketController@showTopUp');
 });

@@ -49,18 +49,7 @@ class MemberController extends Controller
 
         ];
 
-        if ($data) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Profile ditemukan!',
-                'member' => $data,
-            ], 201);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Profile tidak ditemukan!',
-            ], 400);
-        }
+        return $data;
     }
 
     public function createprofile(Request $request, $id)
