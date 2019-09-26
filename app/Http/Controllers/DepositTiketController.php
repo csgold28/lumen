@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\DepositTiket;
+use App\Helpers\Autonumber;
 
 class DepositTiketController extends Controller
 {
@@ -25,10 +26,12 @@ class DepositTiketController extends Controller
         $nominalunik = $subnominal . $unik;
         // return $nominalunik;
 
+        $invoice = Autonumber::autonumber();
+
         $member = Member::find($id);
 
         $reqdeposit = new DepositTiket([
-            'invoice' => 190925000001,
+            'invoice' => $invoice,
             'tipe' => 1,
             'metode' => 1,
             'notes' => 'Silahkan melakukan pembayaran dengan transfer nominal yang telah diberikan!',
