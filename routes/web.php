@@ -26,4 +26,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('req_deposit/{id}', 'DepositTiketController@deposittiket');
     $router->get('topup/{id}', 'DepositTiketController@showTopUp');
+
+    //create kategori
+    $router->post('create_kategori', 'ProdukController@createKategori');
 });
