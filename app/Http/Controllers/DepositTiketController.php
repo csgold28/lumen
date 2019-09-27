@@ -32,8 +32,8 @@ class DepositTiketController extends Controller
 
         $reqdeposit = new DepositTiket([
             'invoice' => 'TOPUP/' . $invoice,
-            'tipe' => 'TOPUP',
-            'metode' => 'Transfer Bank',
+            'tipe' => 1,
+            'metode' => 1,
             'notes' => 'Request Top Up',
             'nominal' => $nominalunik,
             'status' => 2

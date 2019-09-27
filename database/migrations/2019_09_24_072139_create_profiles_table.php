@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->integer('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onUpdate('cascade')->onDelete('cascade');
             $table->string('noktp');
-            $table->boolean('gender')->nullable();
+            $table->string('gender');
             $table->text('alamat');
             $table->string('provinsi');
             $table->string('kota');

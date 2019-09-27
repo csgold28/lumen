@@ -15,7 +15,8 @@ class CreateDepositTiketsTable extends Migration
     {
         Schema::create('deposit_tikets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('member_id')->unsigned()->references('id')->on('members')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('member_id')->unsigned();
+            $table->foreign('member_id')->references('id')->on('members')->onUpdate('cascade')->onDelete('cascade');
             $table->string('invoice');
             $table->integer('tipe');
             $table->integer('metode');

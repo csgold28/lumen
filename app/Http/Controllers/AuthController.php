@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DepositTiket;
 use Illuminate\Http\Request;
 use App\Member;
 //import auth facades
